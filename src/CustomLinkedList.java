@@ -46,7 +46,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
         addElementByIndex(size, item);
     }
 
-    public int contains(T value) {
+    public int indexOf(T value) {
         int i = 0;
         Iterator<T> iterator = this.iterator();
         while (iterator.hasNext()) {
@@ -56,6 +56,41 @@ public class CustomLinkedList<T> implements Iterable<T> {
             i++;
         }
         return -1;
+    }
+
+    public boolean contains(T value) {
+        int i = indexOf(value);
+        if (i >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void setElement(int index, T item) {
+        if (index < 0 || index > size - 1) {
+            throw new RuntimeException("Incorrect index");
+        }
+        CustomLinkedListNode<T> nodeByIndex = getNodeByIndex(index);
+        nodeByIndex.setItem(item);
+    }
+
+    public void linkBefore(T value, CustomLinkedListNode<T> node) {
+        CustomLinkedListNode<T> newNode = new CustomLinkedListNode<>(value);
+        newNode.setNextNode(node);
+        CustomLinkedListNode<T> previousNode = node.getPreviousNode();
+        newNode.setPreviousNode(previousNode);
+        node.setPreviousNode(newNode);
+        previousNode.setNextNode(newNode);
+    }
+
+    public void linkAfter(T value, CustomLinkedListNode<T> node) {
+        CustomLinkedListNode<T> newNode = new CustomLinkedListNode<>(value);
+        CustomLinkedListNode<T> nextNode = node.getNextNode();
+        newNode.setNextNode(nextNode);
+        newNode.setPreviousNode(node);
+        nextNode.setPreviousNode(newNode);
+        node.setNextNode(newNode);
     }
 
     private void addNodeInMiddle(int index, T item) {
@@ -88,7 +123,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
     }
 
 
-    public T getValueById(int id) {
+    public T getValueByIndex(int id) {
         return getNodeByIndex(id).getItem();
     }
 
@@ -157,6 +192,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             CustomLinkedListNode<T> currentNode = headElement;
+
             @Override
             public boolean hasNext() {
                 if (currentNode != null) {
@@ -202,6 +238,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
         public T getItem() {
             return item;
+        }
+
+        public void setItem(T item) {
+            this.item = item;
         }
     }
 }
