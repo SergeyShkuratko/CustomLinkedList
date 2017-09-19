@@ -1,4 +1,6 @@
-public class CustomLinkedList<T> {
+import java.util.Iterator;
+
+public class CustomLinkedList<T> implements Iterable<T> {
 
     private CustomLinkedList.CustomLinkedListNode<T> headElement;
     private CustomLinkedList.CustomLinkedListNode<T> tailElement;
@@ -12,7 +14,6 @@ public class CustomLinkedList<T> {
         newNode.setNextNode(null);
         size++;
     }
-
 
     public void addElementByIndex(int index, T item) {
         if (index < 0) {
@@ -31,8 +32,8 @@ public class CustomLinkedList<T> {
         if (index == 0) {
             addFirst(item);
             return;
-
         }
+
         if (index == size - 1) {
             addLast(item);
             return;
@@ -45,9 +46,21 @@ public class CustomLinkedList<T> {
         addElementByIndex(size, item);
     }
 
+    public int contains(T value) {
+        int i = 0;
+        Iterator<T> iterator = this.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(value)) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
     private void addNodeInMiddle(int index, T item) {
         CustomLinkedListNode<T> newNode = new CustomLinkedListNode<>(item);
-        CustomLinkedListNode<T> prevNode = searchNodeByIndex(index - 1);
+        CustomLinkedListNode<T> prevNode = getNodeByIndex(index - 1);
         CustomLinkedListNode<T> nextNode = prevNode.getNextNode();
         prevNode.setNextNode(newNode);
         nextNode.setPreviousNode(newNode);
@@ -76,18 +89,13 @@ public class CustomLinkedList<T> {
 
 
     public T getValueById(int id) {
-        return searchNodeByIndex(id).getItem();
-    }
-
-    public void printAllElements() {
-        CustomLinkedList.CustomLinkedListNode<T> currentNode = headElement;
-        for (int i = 0; i < size; i++) {
-            System.out.println(currentNode.getItem());
-            currentNode = currentNode.getNextNode();
-        }
+        return getNodeByIndex(id).getItem();
     }
 
     public void removeByIndex(int index) {
+        if (size == 0) {
+            throw new RuntimeException("You can not remove elements from empty list");
+        }
         if (index < 0 || index > size - 1) {
             throw new RuntimeException("Incorrect index: " + index + ". Index must be contained between 0 and " + (size - 1));
         }
@@ -97,14 +105,43 @@ public class CustomLinkedList<T> {
             return;
         }
 
-        if(index == size-1){
+        if (index == size - 1) {
             removeLast();
             return;
         }
         removeMiddle(index);
     }
 
-    private CustomLinkedListNode<T> searchNodeByIndex(int index) {
+    private void removeMiddle(int index) {
+        CustomLinkedListNode<T> nodeByIndex = getNodeByIndex(index);
+        CustomLinkedListNode<T> previousNode = nodeByIndex.previousNode;
+        CustomLinkedListNode<T> nextNode = nodeByIndex.nextNode;
+        previousNode.setNextNode(nextNode);
+        nextNode.setPreviousNode(previousNode);
+        size--;
+    }
+
+    private void removeLast() {
+        CustomLinkedListNode<T> oldTail = this.tailElement;
+        CustomLinkedListNode<T> newTail = oldTail.getPreviousNode();
+        if (newTail != null) {
+            newTail.setNextNode(null);
+        }
+        tailElement = null;
+        size--;
+    }
+
+    private void removeFirst() {
+        CustomLinkedListNode<T> oldHead = this.headElement;
+        CustomLinkedListNode<T> newHead = oldHead.getNextNode();
+        if (newHead != null) {
+            newHead.setPreviousNode(null);
+        }
+        headElement = newHead;
+        size--;
+    }
+
+    public CustomLinkedListNode<T> getNodeByIndex(int index) {
         CustomLinkedList.CustomLinkedListNode<T> currentNode = headElement;
         for (int i = 0; i < index; i++) {
             currentNode = currentNode.getNextNode();
@@ -114,6 +151,28 @@ public class CustomLinkedList<T> {
 
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            CustomLinkedListNode<T> currentNode = headElement;
+            @Override
+            public boolean hasNext() {
+                if (currentNode != null) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public T next() {
+                T item = currentNode.getItem();
+                currentNode = currentNode.getNextNode();
+                return item;
+            }
+        };
     }
 
     public static class CustomLinkedListNode<T> {
