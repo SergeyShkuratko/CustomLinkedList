@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19c7cee6-e8f3-4598-8bc4-38f4e0f4a715" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CustomLinkedList.java" afterPath="$PROJECT_DIR$/src/CustomLinkedList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/TestMethods.java" afterPath="$PROJECT_DIR$/test/TestMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestMethods.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestMethods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/TestMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="1476">
               <caret line="82" column="60" lean-forward="true" selection-start-line="82" selection-start-column="60" selection-end-line="82" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomLinkedList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CustomLinkedList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CustomLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="361">
+              <caret line="19" column="70" lean-forward="true" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
               <folding>
                 <element signature="e#1121#1122#0" expanded="true" />
                 <element signature="e#1166#1167#0" expanded="true" />
@@ -535,7 +533,7 @@
       <workItem from="1505760389098" duration="254000" />
       <workItem from="1505800987584" duration="8296000" />
       <workItem from="1505811957001" duration="1565000" />
-      <workItem from="1505818855392" duration="13149000" />
+      <workItem from="1505818855392" duration="13361000" />
     </task>
     <task id="LOCAL-00001" summary="add some test and fix bugs">
       <created>1505824982012</created>
@@ -551,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505829218915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="many fixes and new tests">
+      <created>1505836523043</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1505836523043</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -587,7 +592,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24019000" />
+    <option name="totallyTimeSpent" value="24231000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -673,7 +678,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add some test and fix bugs" />
     <MESSAGE value="many fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="many fixes" />
+    <MESSAGE value="many fixes and new tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="many fixes and new tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1040,6 +1046,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/TestMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1476">
+          <caret line="82" column="60" lean-forward="true" selection-start-line="82" selection-start-column="60" selection-end-line="82" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1050,8 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CustomLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="361">
+          <caret line="19" column="70" lean-forward="true" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
           <folding>
             <element signature="e#1121#1122#0" expanded="true" />
             <element signature="e#1166#1167#0" expanded="true" />
@@ -1063,16 +1079,6 @@
             <element signature="e#6999#7000#0" expanded="true" />
             <element signature="e#7103#7104#0" expanded="true" />
             <element signature="e#7143#7144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/TestMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="82" column="60" lean-forward="true" selection-start-line="82" selection-start-column="60" selection-end-line="82" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
